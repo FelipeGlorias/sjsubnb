@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Listing{% endblock %}
+
+{% block content %}
+<h1>Create a New Listing</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(size=50) }}
+    </p>
+
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(rows=4, cols=50) }}
+    </p>
+
+    <p>
+        {{ form.price.label }}<br>
+        {{ form.price() }}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}
