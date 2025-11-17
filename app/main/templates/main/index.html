@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - SJ SubNB{% endblock %}
+
+{% block content %}
+<h1>All Listings</h1>
+
+{% if listings %}
+    <ul>
+        {% for listing in listings %}
+            <li>
+                <a href="{{ url_for('main.listing_detail', listing_id=listing.id) }}">
+                    {{ listing.title }} - ${{ listing.price }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No listings yet. <a href="{{ url_for('main.create_listing') }}">Create one now!</a></p>
+{% endif %}
+{% endblock %}
